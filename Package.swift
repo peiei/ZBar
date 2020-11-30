@@ -64,6 +64,7 @@ let package = Package(
             linkerSettings: [
                 .linkedFramework("AVFoundation"),
                 .linkedFramework("UIKit"),
+				.linkedFramework("WebKit"),
                 .linkedLibrary("iconv"),
             ]),
     ]

@@ -226,27 +226,6 @@
 }
 
 
-- (BOOL)             webView: (UIWebView*) view
-  shouldStartLoadWithRequest: (NSURLRequest*) req
-              navigationType: (UIWebViewNavigationType) nav
-{
-    NSURL *url = [req URL];
-    if([url isFileURL])
-        return(YES);
-
-    linkURL = url;
-    UIAlertView *alert =
-        [[UIAlertView alloc]
-            initWithTitle: @"Open External Link"
-            message: @"Close this application and open link in Safari?"
-            delegate: nil
-            cancelButtonTitle: @"Cancel"
-            otherButtonTitles: @"OK", nil];
-    alert.delegate = self;
-    [alert show];
-    return(NO);
-}
-
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
     NSURL *url = [navigationAction.request URL];
     if([url isFileURL])
